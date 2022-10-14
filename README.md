@@ -11,7 +11,7 @@ inbuilt function in OpenCV. These contours are sorted and the largest contour
 way the product is segmented from all the images in product_images. The result for
 this step are shown in fig 1. for the product image qr281.jpg
 ![alt text](https://github.com/Sajal92/Product-Detection-from-Packshots/blob/main/sample_crop.png)
-Fig 1. Product image and corresponding cropped product
+*Fig 1. Product image and corresponding cropped product*
 
 * After obtaining the product segment from each of the product images individual
 product is matched with each and every image in the shelf_images folder. For this
@@ -23,7 +23,7 @@ found then the corresponding IDs of product and shelf image, including the max m
 va;ues of the bounding box, are dumped into solutions.txt file. The result for this step
 are shown in fig 2. for product image qr281.jpg and shelf image db1662.jpg
 ![alt text](https://github.com/Sajal92/Product-Detection-from-Packshots/blob/main/sample_output.png)
-Fig 2. The result of the matching algorithm
+*Fig 2. The result of the matching algorithm*
 
 Pros:
 * Can handle different scales of product and shelf image. The product inside the shelf
