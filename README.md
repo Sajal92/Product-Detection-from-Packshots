@@ -1,5 +1,6 @@
 # Product-Detection-from-Packshots
 **Overview of the solution provided for Problem 1:**
+
 *Firstly the products are cropped from the product_images and stored in a different
 folder named ‘cropped product images’. The classical algorithm was used to detect
 the object in the image. The algorithm works as follows. Firstly, the product image is
@@ -9,7 +10,7 @@ inbuilt function in OpenCV. These contours are sorted and the largest contour
 ,corresponding to the largest area, represents the product inside the image. In this
 way the product is segmented from all the images in product_images. The result for
 this step are shown in fig 1. for the product image qr281.jpg
-
+![alt text](https://github.com/Sajal92/Product-Detection-from-Packshots/blob/main/sample_crop.png)
 Fig 1. Product image and corresponding cropped product
 
 * After obtaining the product segment from each of the product images individual
@@ -21,7 +22,7 @@ descriptors inside the shelf image, if there’s any. In this way if there’s a
 found then the corresponding IDs of product and shelf image, including the max min
 va;ues of the bounding box, are dumped into solutions.txt file. The result for this step
 are shown in fig 2. for product image qr281.jpg and shelf image db1662.jpg
-
+![alt text](https://github.com/Sajal92/Product-Detection-from-Packshots/blob/main/sample_output.png)
 Fig 2. The result of the matching algorithm
 
 Pros:
@@ -41,8 +42,8 @@ These algorithm will perform better since the product inside the product_image i
 clear foreground compared to te relatively white background. This accurate segment
 can then be used in matching algorithm proposed above.
 
-The best solution which comes to my mind that can solve both problem 1 and
-problem 2:
+**The best solution which comes to my mind that can solve both problem 1 and
+problem 2:**
 * Firstly annotate the product images by drawing the bounding boxes for each product
 using an object detection labeling software i.e labelImg. This operation will be very
 fast since each product image contains only one product.
@@ -51,11 +52,11 @@ fast since each product image contains only one product.
 generating training images for our deep learning model (preferably fine tuning an
 already available model from tensorflow zoo to our specdific problem). It mainly
 involves following steps:
-● Take a blank image of a particular dimension say 500 X 500●
+  * Take a blank image of a particular dimension say 500 X 500●
 Divide it into 100(10 X 10) sections of size 50 X 50 each or divide it into
 400(20 X 20) sections of size 25 X 25 each. This division could further vary
 depending on the variations we want in our training images
-● Now take the cropped annotated product and resize it to the the section size
+  * Now take the cropped annotated product and resize it to the the section size
 mentioned in the above step. There is one thing to be remembered here, this
 cropped annotated part should also be padded with some pixels(these pixels
 act as a background and simulate the space between products in real
@@ -64,7 +65,7 @@ annotated part can be augmented(i.e rotated, skewed, blurred etc.) before
 being padded and placed into the sections. In this way we can simulate the
 real world scenario where product might not be placed upright. It also solves
 the problem of product being placed tilted inside the product image.
-● Following the above steps we can generate a lot of training images.
+  * Following the above steps we can generate a lot of training images.
 
 * Fine tune a state of the art object detection model to our training images and
 continuously monitoring the model performance on test images. Once the desired
